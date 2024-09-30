@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxk35i3bnxoyx"]
+
+[ext_resource type="Texture2D" uid="uid://c6tggv1ljacx8" path="res://assets/PNG/Sprites/Missiles/spaceMissiles_040.png" id="1_sda14"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73h7l"]
+
+[node name="Bullet" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(362, 200)
+texture = ExtResource("1_sda14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_73h7l")
