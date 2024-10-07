@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://bullet.gd" id="1_csdhu"]
 [ext_resource type="PackedScene" uid="uid://nb8daasaeu3i" path="res://explosion.tscn" id="2_hvpqa"]
 [ext_resource type="AudioStream" uid="uid://dxtc48o5qwpl8" path="res://sounds/Laser_Shoot38.wav" id="3_ba8d6"]
-[ext_resource type="Texture2D" uid="uid://b1cipqihuiio5" path="res://assets/pngtree-fresh-nile-tilapia-or-pla-nin-in-thai-freshwater-fish-isolated-png-image_10086755.png" id="3_rcros"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ouehp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mkyav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mn0g"]
 size = Vector2(10, 10)
@@ -18,10 +19,8 @@ explosion = ExtResource("2_hvpqa")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.313726, 0.568627, 0.701961, 1)
 material = SubResource("CanvasItemMaterial_ouehp")
-position = Vector2(-4, -2)
-rotation = -1.566
-scale = Vector2(0.600772, 0.600772)
-texture = ExtResource("3_rcros")
+scale = Vector2(10, 10)
+texture = SubResource("CanvasTexture_mkyav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5mn0g")
