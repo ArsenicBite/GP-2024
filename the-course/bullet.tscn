@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcn4soippejj5"]
+[gd_scene load_steps=8 format=3 uid="uid://dcn4soippejj5"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_csdhu"]
 [ext_resource type="PackedScene" uid="uid://nb8daasaeu3i" path="res://explosion.tscn" id="2_hvpqa"]
 [ext_resource type="AudioStream" uid="uid://dxtc48o5qwpl8" path="res://sounds/Laser_Shoot38.wav" id="3_ba8d6"]
+[ext_resource type="Texture2D" uid="uid://b3rsbj61d00lw" path="res://assets/Bullet.png" id="4_sfvwq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ouehp"]
 
@@ -17,6 +18,7 @@ speed = 500
 explosion = ExtResource("2_hvpqa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.313726, 0.568627, 0.701961, 1)
 material = SubResource("CanvasItemMaterial_ouehp")
 scale = Vector2(10, 10)
@@ -33,5 +35,11 @@ autostart = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ba8d6")
 autoplay = true
+
+[node name="Bullet" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+rotation = -1.56892
+scale = Vector2(0.988168, 0.988168)
+texture = ExtResource("4_sfvwq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
