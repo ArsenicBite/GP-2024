@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dum0vq7fy15st"]
+[gd_scene load_steps=15 format=3 uid="uid://dum0vq7fy15st"]
 
 [ext_resource type="Script" path="res://root1.gd" id="1_027t5"]
 [ext_resource type="FontFile" uid="uid://0jk2p2kfmllu" path="res://fonts/Hyperspace Bold.otf" id="2_601f3"]
@@ -7,19 +7,34 @@
 [ext_resource type="AudioStream" uid="uid://bq4kjn4r61ps2" path="res://sounds/jet.wav" id="5_ee1yw"]
 [ext_resource type="Script" path="res://jet_sound.gd" id="6_6rfpp"]
 [ext_resource type="Texture2D" uid="uid://c3ukxm6xtxh0b" path="res://assets/Shooter Character.png" id="7_bgtdf"]
-[ext_resource type="Script" path="res://spawner.gd" id="7_jndn7"]
+[ext_resource type="Script" path="res://goomba.gd" id="8_bjxu8"]
 [ext_resource type="PackedScene" uid="uid://bwi6lmhwtpkeh" path="res://block.tscn" id="8_jabo1"]
+[ext_resource type="PackedScene" uid="uid://c48m4o1cmjc4t" path="res://Ground.tscn" id="9_sjr7v"]
+[ext_resource type="Texture2D" uid="uid://f3ki7qe463we" path="res://backgound2.webp" id="10_yu43s"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m7bvt"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7xkkn"]
 
+[sub_resource type="Curve2D" id="Curve2D_4b0b6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 877.687, 1034.76, 0, 0, 0, 0, 771.187, 762.758, 0, 0, 0, 0, 856.69, 740.457, 0, 0, 0, 0, 837.183, 692.213, 0, 0, 0, 0, 904.921, 667.809, 0, 0, 0, 0, 881.72, 597.511, 0, 0, 0, 0, 961.951, 566.48, 0, 0, 0, 0, 924.832, 522.456, 0, 0, 0, 0, 972.385, 447.926, 0, 0, 0, 0, 877.835, 409.711, 0, 0, 0, 0, 854.856, 322.327, 0, 0, 0, 0, 789, 346.054, 0, 0, 0, 0, 765.951, 282.079, 0, 0, 0, 0, 695.806, 311.602, 0, 0, 0, 0, 665.757, 245.898, 0, 0, 0, 0, 611.868, 267.439, 0, 0, 0, 0, 512.673, 9.81035)
+}
+point_count = 17
+
 [node name="root" type="Node2D"]
 script = ExtResource("1_027t5")
 custom_font = ExtResource("2_601f3")
 
+[node name="Backgound2" type="Sprite2D" parent="."]
+position = Vector2(583.25, 344)
+scale = Vector2(2.36335, 2.52857)
+texture = ExtResource("10_yu43s")
+
+[node name="Static Goomba" type="Node" parent="."]
+
 [node name="player" type="RigidBody2D" parent="." node_paths=PackedStringArray("bullet_spawn")]
-position = Vector2(509, 348)
+position = Vector2(55, 444)
 rotation = 1.54853
 scale = Vector2(0.632285, 0.632285)
 mass = 5.0
@@ -67,12 +82,50 @@ rotation = -1.5529
 scale = Vector2(2.70013, 2.70013)
 texture = ExtResource("7_bgtdf")
 
-[node name="spawner" type="Node2D" parent="."]
-script = ExtResource("7_jndn7")
-thing = ExtResource("8_jabo1")
-
 [node name="ui" type="Node" parent="."]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Goomba" type="Node" parent="."]
+script = ExtResource("8_bjxu8")
+
+[node name="Path2D" type="Path2D" parent="Goomba"]
+position = Vector2(-148, 930)
+rotation = -1.22995
+curve = SubResource("Curve2D_4b0b6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Goomba/Path2D"]
+position = Vector2(877.687, 1034.76)
+rotation = -1.94399
+
+[node name="block" parent="Goomba/Path2D/PathFollow2D" instance=ExtResource("8_jabo1")]
+rotation = -3.06834
+
+[node name="block" parent="." instance=ExtResource("9_sjr7v")]
+position = Vector2(608, 482)
+
+[node name="block2" parent="." instance=ExtResource("9_sjr7v")]
+position = Vector2(518, 346)
+scale = Vector2(-0.04, 23.44)
+
+[node name="block3" parent="." instance=ExtResource("9_sjr7v")]
+position = Vector2(646, 346)
+scale = Vector2(-0.04, 23.44)
+
+[node name="block4" parent="." instance=ExtResource("9_sjr7v")]
+position = Vector2(712, 386)
+scale = Vector2(-0.04, 15.24)
+
+[node name="block7" parent="." instance=ExtResource("9_sjr7v")]
+position = Vector2(458, 388)
+scale = Vector2(-0.04, 15.24)
+
+[node name="block5" parent="." instance=ExtResource("9_sjr7v")]
+position = Vector2(780, 434)
+scale = Vector2(-0.04, 7.92)
+
+[node name="block6" parent="." instance=ExtResource("9_sjr7v")]
+position = Vector2(382, 434)
+scale = Vector2(-0.04, 7.92)
 
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
