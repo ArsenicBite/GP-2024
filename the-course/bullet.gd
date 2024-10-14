@@ -11,10 +11,10 @@ func _process(delta):
 	if c:
 		if c.get_collider().name.contains("block"):
 			c.get_collider().queue_free()
-			#var e = explosion.instantiate()
-			#get_tree().get_root().add_child(e)
-			#e.global_position = self.global_position
-			#e.emitting = true
+			var e = explosion.instantiate()
+			get_tree().get_root().add_child(e)
+			e.global_position = self.global_position
+			e.emitting = true
 			self.queue_free()
 
 
