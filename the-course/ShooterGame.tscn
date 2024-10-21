@@ -89,8 +89,6 @@ texture = ExtResource("8_8owxn")
 
 [node name="ui" type="Node" parent="."]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
 [node name="Goomba" type="Node" parent="."]
 script = ExtResource("9_p8c3s")
 
@@ -130,7 +128,6 @@ scale = Vector2(64.7225, -1.38375)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
 position = Vector2(-1.563, -117.001)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_i7q7h")
 
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
