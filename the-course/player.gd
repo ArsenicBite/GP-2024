@@ -8,6 +8,16 @@ const JUMP_VELOCITY = -400.0
 
 const TURN_RATE = 180
 
+func print_stuff():
+	DebugDraw2D.set_text("pos", position)
+	DebugDraw2D.set_text("rotation", rotation)
+	DebugDraw2D.set_text("rotation deg", rad_to_deg(rotation))
+	DebugDraw2D.set_text("trasform.x", transform.x)
+	DebugDraw2D.set_text("transoform.y", transform.y)
+	DebugDraw2D.set_text("global_trasform.x", global_transform.x)
+	DebugDraw2D.set_text("global_transoform.y", global_transform.y)
+	DebugDraw2D.set_text("vel", velocity)
+
 func _physics_process(delta: float) -> void:
 	
 	var r = Input.get_axis("turn_left", "turn_right")
