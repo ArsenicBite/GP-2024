@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c3ukxm6xtxh0b" path="res://assets/Shooter Character.png" id="8_8owxn"]
 [ext_resource type="Script" path="res://goomba.gd" id="9_p8c3s"]
 [ext_resource type="PackedScene" uid="uid://bwi6lmhwtpkeh" path="res://block.tscn" id="10_537n3"]
-[ext_resource type="PackedScene" uid="uid://c48m4o1cmjc4t" path="res://Ground.tscn" id="11_id65c"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m7bvt"]
 
@@ -22,9 +21,13 @@ _data = {
 }
 point_count = 17
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7q7h"]
+size = Vector2(22.9655, 124.303)
+
 [node name="root" type="Node2D"]
 script = ExtResource("1_e18rg")
 custom_font = ExtResource("2_bfj0p")
+metadata/_edit_horizontal_guides_ = [213.0]
 
 [node name="Backgound2" type="Sprite2D" parent="."]
 position = Vector2(583.25, 344)
@@ -103,31 +106,31 @@ rotation = -1.94399
 [node name="block" parent="Goomba/Path2D/PathFollow2D" instance=ExtResource("10_537n3")]
 rotation = -3.06834
 
-[node name="block" parent="." instance=ExtResource("11_id65c")]
-position = Vector2(608, 482)
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(866, 401)
+rotation = -0.000993253
+scale = Vector2(64.7225, -1.38375)
 
-[node name="block2" parent="." instance=ExtResource("11_id65c")]
-position = Vector2(518, 346)
-scale = Vector2(-0.04, 23.44)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(-3.84499, 104.244, -2.88705, 104.199, -2.84174, 55.0553, -1.83753, 51.3953, -1.77688, -2.80814, -0.757125, -2.13287, -0.742687, -49.8301, -3.81743, -53.3006)
 
-[node name="block3" parent="." instance=ExtResource("11_id65c")]
-position = Vector2(646, 346)
-scale = Vector2(-0.04, 23.44)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(866, 401)
+rotation = -0.000993253
+scale = Vector2(64.7225, -1.38375)
 
-[node name="block4" parent="." instance=ExtResource("11_id65c")]
-position = Vector2(712, 386)
-scale = Vector2(-0.04, 15.24)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-4.91419, -42.4095)
+polygon = PackedVector2Array(-3.02744, 41.3331, -2.08497, 40.5667, -2.03754, 91.1517, -1.06413, 92.5518, -1.00119, 146.027, 0.0340157, 146.701, 0.0153275, -5.78214, -3.1212, -8.5271)
 
-[node name="block7" parent="." instance=ExtResource("11_id65c")]
-position = Vector2(458, 388)
-scale = Vector2(-0.04, 15.24)
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(866, 401)
+rotation = -0.000993253
+scale = Vector2(64.7225, -1.38375)
 
-[node name="block5" parent="." instance=ExtResource("11_id65c")]
-position = Vector2(780, 434)
-scale = Vector2(-0.04, 7.92)
-
-[node name="block6" parent="." instance=ExtResource("11_id65c")]
-position = Vector2(382, 434)
-scale = Vector2(-0.04, 7.92)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
+position = Vector2(-1.563, -117.001)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_i7q7h")
 
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
