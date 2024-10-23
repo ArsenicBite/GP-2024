@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://f4l24y60fp4l"]
+[gd_scene load_steps=9 format=3 uid="uid://f4l24y60fp4l"]
 
 [ext_resource type="Script" path="res://main_game.gd" id="1_12jo7"]
 [ext_resource type="Texture2D" uid="uid://ddjsjggigx3fy" path="res://LIANOtopview_1024x1024.webp" id="1_kd62o"]
+[ext_resource type="AudioStream" uid="uid://cjjdt86aolnfx" path="res://Sounds/448540__tedagame__c1.ogg" id="3_tpdie"]
+[ext_resource type="AudioStream" uid="uid://dtur21d2nvtcw" path="res://Sounds/448542__tedagame__d1.ogg" id="4_kpnbm"]
+[ext_resource type="AudioStream" uid="uid://da0e4je3bwt27" path="res://Sounds/448616__tedagame__e1.ogg" id="5_dtvvn"]
+[ext_resource type="AudioStream" uid="uid://dejj77658ssw8" path="res://Sounds/448586__tedagame__f1.ogg" id="6_357eh"]
+[ext_resource type="AudioStream" uid="uid://jd7yefreyk0s" path="res://Sounds/448591__tedagame__g1.ogg" id="7_alstj"]
+[ext_resource type="AudioStream" uid="uid://6gt6m7kacnyn" path="res://Sounds/448578__tedagame__a1.ogg" id="7_iquuu"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_12jo7")
@@ -375,11 +381,39 @@ offset_right = 1149.0
 offset_bottom = 179.0
 scale = Vector2(0.460909, 3.21949)
 
+[node name="(1)" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tpdie")
+
+[node name="(2)" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kpnbm")
+
+[node name="(3)" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dtvvn")
+
+[node name="(4)" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_357eh")
+
+[node name="(5)" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_alstj")
+
+[node name="(6)" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_iquuu")
+
+[connection signal="pressed" from="1" to="." method="_on__pressed"]
+[connection signal="pressed" from="1" to="." method="_on_1_pressed"]
 [connection signal="pressed" from="1" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="2" to="." method="_on__pressed"]
+[connection signal="pressed" from="2" to="." method="_on_2_pressed"]
 [connection signal="pressed" from="2" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="3" to="." method="_on_3_pressed"]
 [connection signal="pressed" from="3" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="4" to="." method="_on_4_pressed"]
+[connection signal="pressed" from="4" to="." method="_on__pressed"]
 [connection signal="pressed" from="4" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="5" to="." method="_on__pressed"]
+[connection signal="pressed" from="5" to="." method="_on_5_pressed"]
 [connection signal="pressed" from="5" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="6" to="." method="_on_6_pressed"]
 [connection signal="pressed" from="6" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="7" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="8" to="." method="_on_texture_button_pressed"]

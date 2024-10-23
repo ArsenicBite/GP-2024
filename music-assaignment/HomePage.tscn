@@ -36,7 +36,7 @@ offset_top = 560.0
 offset_right = 638.0
 offset_bottom = 632.0
 texture_normal = ExtResource("3_3kih0")
-texture_pressed = ExtResource("4_t617l")
+texture_hover = ExtResource("4_t617l")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Information" to="." method="_on_information_pressed"]
