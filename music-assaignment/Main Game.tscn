@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://f4l24y60fp4l"]
+
+[ext_resource type="Texture2D" uid="uid://b0oe4quonqmfe" path="res://Buttons/information01.png" id="1_pyd6l"]
+[ext_resource type="Texture2D" uid="uid://m8jkakb3uian" path="res://Buttons/information03.png" id="2_rnbvn"]
+[ext_resource type="Texture2D" uid="uid://boykru8bmph0p" path="res://Buttons/about01.png" id="3_j7ufu"]
+[ext_resource type="Texture2D" uid="uid://sf3v7otaafoj" path="res://Buttons/about03.png" id="4_gjv6i"]
+
+[node name="MainGame" type="Node2D"]
+
+[node name="Information" type="TextureButton" parent="."]
+offset_left = 988.0
+offset_top = 570.0
+offset_right = 1132.0
+offset_bottom = 642.0
+texture_normal = ExtResource("1_pyd6l")
+texture_hover = ExtResource("2_rnbvn")
+
+[node name="About" type="TextureButton" parent="."]
+offset_left = 494.0
+offset_top = 568.0
+offset_right = 638.0
+offset_bottom = 640.0
+texture_normal = ExtResource("3_j7ufu")
+texture_hover = ExtResource("4_gjv6i")
